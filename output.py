@@ -1,8 +1,11 @@
+#Import Libraries
 import numpy as np
 import matplotlib.pyplot as plt
 
 
+#  Plot bound orbit with two bodies on the xy plane
 def plot_orbit_xyplane(positions):
+    """Plot bound orbit on the xy plane"""
     fig, ax = plt.subplots(1, 1)
 
     for ind,pos in enumerate(positions):
@@ -19,7 +22,9 @@ def plot_orbit_xyplane(positions):
     plt.savefig("bound_orbit_xy.jpeg")
     plt.show()
 
+#Plot evolution of time VS position in the x direction
 def time_evolution_xposition(times,positions):
+    """Plot evolution of time VS position in the x direction"""
     fig, ax = plt.subplots(1, 1)
     for ind,pos in enumerate(positions):
         if ind == 0:
@@ -35,8 +40,9 @@ def time_evolution_xposition(times,positions):
     plt.savefig("time_evolution_xposition.jpeg")
     plt.show()
 
+#  Plot bound orbit with two bodies on the xz plane
 def plot_orbit_xzplane(positions):
-    ""
+    """Plot orbit on the xz plane"""
     fig, ax = plt.subplots(1, 1)
 
     for ind,pos in enumerate(positions):
@@ -53,7 +59,9 @@ def plot_orbit_xzplane(positions):
     plt.savefig("bound_orbit_xz.jpeg")
     plt.show()
 
+#Plot evolution of time VS position in the y direction
 def time_evolution_yposition(times,positions):
+    """Plot evolution of time VS position in the y direction"""
     fig, ax = plt.subplots(1, 1)
     for ind,pos in enumerate(positions):
         if ind == 0:
@@ -67,4 +75,22 @@ def time_evolution_yposition(times,positions):
     plt.ylabel('y')
     plt.title("Y_Position VS Time")
     plt.savefig("time_evolution_yposition.jpeg")
+    plt.show()
+
+def plot_energy_time(times,total_E):
+    plt.figure()
+    plt.plot(times,total_E)
+    plt.xlabel('Times')
+    plt.ylabel('Total Energy')
+    plt.title("Times VS Total Energy")
+    plt.savefig("time_vs_total energy.jpeg")
+    plt.show()
+
+def plot_total_angular_momentum_time(times,total_L):
+    plt.figure()
+    plt.plot(times,total_L)
+    plt.xlabel('Times')
+    plt.ylabel('Total Angular Momentum')
+    plt.title("Times VS Total Angular Momentum")
+    plt.savefig("time_vs_total angular momentum.jpeg")
     plt.show()

@@ -1,7 +1,9 @@
-from integrate import rk4
+from integrate import rk4, euler
 from setup import initial_conditions
 import matplotlib.pyplot as plt
-def test_time_reversal():
+#define time reversal function for the integrator
+def test_time_reversal(integrator):
+    """Implement test_time_reversal function"""
     t0 = 0
     dt = 0.1
     t1 = 100
@@ -16,7 +18,10 @@ def test_time_reversal():
     times = []
     revtimes = []
     while t <= t1:
-        p, v = rk4(p,v,dt,N_bodies,M)
+        if integrator == "rk4":
+            p, v = rk4(p,v,dt,N_bodies,M)
+        elif integrator == "euler":
+            p, v = euler(p,v,dt,N_bodies,M)
         positions.append(p.copy())
         velocities.append(v.copy())
         times.append(t)
@@ -24,7 +29,10 @@ def test_time_reversal():
     rev_positions = []
     rev_velocities = []
     while revt >= t0:
-        p, v = rk4(p,v,-dt,N_bodies,M)
+        if integrator == "rk4":
+            p, v = rk4(p,v,-dt,N_bodies,M)
+        elif integrator == "euler":
+            p, v = euler(p,v,-dt,N_bodies,M)
         rev_positions.append(p.copy())
         rev_velocities.append(v.copy())
         revtimes.append(revt)
@@ -49,6 +57,8 @@ def test_time_reversal():
     plt.xlabel('x')
     plt.ylabel('y')
     plt.title("Orbital Plane from the Top")
-    plt.savefig("time_reversal_check.jpeg")
+    plt.savefig("time_reversal_check_{}.jpeg".format(integrator))
     plt.show()
-test_time_reversal()
+test_time_reversal(integrator ='rk4')
+test_time_reversal(integrator = 'euler')
+# two test are energy and anuglar the plots in the sae folder
