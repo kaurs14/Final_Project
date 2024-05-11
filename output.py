@@ -77,7 +77,9 @@ def time_evolution_yposition(times,positions):
     plt.savefig("time_evolution_yposition.jpeg")
     plt.show()
 
+# Define new function to plot total energy of the system with time evolution
 def plot_energy_time(times,total_E):
+    """Plot total energy Vs time of the system"""
     plt.figure()
     plt.plot(times,total_E)
     plt.xlabel('Times')
@@ -86,7 +88,9 @@ def plot_energy_time(times,total_E):
     plt.savefig("time_vs_total energy.jpeg")
     plt.show()
 
+# Define new function to plot total angular momentum of the system with time evolution
 def plot_total_angular_momentum_time(times,total_L):
+    """Plot total angular momentum Vs time of the system"""
     plt.figure()
     plt.plot(times,total_L)
     plt.xlabel('Times')

@@ -61,4 +61,5 @@ def test_time_reversal(integrator):
     plt.show()
 test_time_reversal(integrator ='rk4')
 test_time_reversal(integrator = 'euler')
-# two test are energy and anuglar the plots in the sae folder
+# Other two tests I did whether total energy and total anular momentum of the system conserved.
+# Both Plots are in the final_project folder.
